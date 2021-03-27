@@ -4,11 +4,36 @@
   
   
   <entry>
+    <title>LeetCode每日一题No.61</title>
+    <link href="/2021/03/27/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/"/>
+    <url>/2021/03/27/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>leetcode 算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>使用Hexo+githubpages搭建独立博客</title>
     <link href="/2021/03/27/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <url>/2021/03/27/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     
-    <content type="html"><![CDATA[<p>最近看到某大神在面试时向hr展示自己的个人博客，感到甚是佩服，不仅在于他能动手搭博客的能力，更在于他长年累月的记录。把自己不熟悉的花了很长时间才弄懂的问题用博客的形式记录下来，一是加深自己的印象，二是能够经常翻阅。“最适合学习的时候是一年前，其次是现在。”所以本人也趁着近日无事，花了半日时间鼓捣了一下我的个人博客</p><h2 id="关于Hexo的使用"><a href="#关于Hexo的使用" class="headerlink" title="关于Hexo的使用"></a>关于Hexo的使用</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>本文是基于windows系统下的搭建过程，所以你需要准备<br>系统: windows10<br>nodejs：<a href="http://nodejs.cn/download/">下载</a><br>git: <a href="https://git-scm.com/download/">下载</a></p><h3 id="安装hexo的运行环境"><a href="#安装hexo的运行环境" class="headerlink" title="安装hexo的运行环境"></a>安装hexo的运行环境</h3><p>把下载的git和hexo正常安装就好了</p><p>git安装完成后的检查操作，打开cmd，输入命令<code>git</code>显示如图即为正常安装<br><img src="/img/git.jpg"></p><h3 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h3><p>首先为了给你的博客寻找一个合适的位置，你需要新建一个文件夹来存放你的博客的相关内容。然后在这个目录下鼠标右键，选择Git Bash Here，在打开的命令窗口下分别键入如下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">//安装hexo基础框架<br>npm install hexo-cli -g<br></code></pre></td></tr></table></figure><p>自动安装完成后。输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo -v<br></code></pre></td></tr></table></figure><p>检查是否安装成功<br>如果到目前为止都没有问题的话，那么本地的配置就已经全部结束了。接下来我们需要在<strong>GitHub</strong>上新建项目</p><ul><li>在GitHub上创建并设置远程库<br>注册登录GitHub账号，关于无法访问GitHub的问题，<del>出门右转科学上网。</del><br>登录完成后，选择<strong>New repository，然后在Repository name下面填写你要创建的地址(注意仓库名一定要和用户名一致），这个地址是就是你的域名，以github.io结尾。</strong> 例如填写<code>codersunk.github.io</code>以后在地址栏直接输入<code>codersunk.github.io</code>就可以访问博客网站</li><li>初始化Hexo<br>在博客文件夹目录下，右键Git Bash here，键入<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo init<br></code></pre></td></tr></table></figure>等待初始化完成</li><li>配置deployment<br>在博客项目的根目录有个_config.yml配置文件，修改里面的deploy配置，如下：<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">url:</span> https:<span class="hljs-comment">//name.github.io</span><br><br>...<br><br><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">type:</span> git<br><span class="hljs-symbol">repository:</span> git@github.com:name/name.github.io.git<br><span class="hljs-symbol">branch:</span> main<br></code></pre></td></tr></table></figure></li><li>安装git部署插件<br>在目录下右键Git Bash here，键入<code>npm install hexo-deployer-git --save</code></li><li>本地查看<br>键入<code>hexo g</code> 加载hexo基础html、css、js等文件。<br>接着键入<code>hexo s</code> 相当于开启了一个本地的服务器,在浏览器中输入 <a href="http://localhost:4000/">http://localhost:4000/</a> ,出现如下页面，说明本地hexo默认模板配置成功<br><img src="/img/hexo.jpg"></li><li>远程部署<br><code>hexo d</code>,部署成功后，即可在<a href="https://name.github.io下访问你的博客/">https://name.github.io下访问你的博客</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>最近看到某大神在面试时向hr展示自己的个人博客，感到甚是佩服，不仅在于他能动手搭博客的能力，更在于他长年累月的记录。把自己不熟悉的花了很长时间才弄懂的问题用博客的形式记录下来，一是加深自己的印象，二是能够经常翻阅。“最适合学习的时候是一年前，其次是现在。”所以本人也趁着近日无事，花了半日时间鼓捣了一下我的个人博客</p><h2 id="关于Hexo的使用"><a href="#关于Hexo的使用" class="headerlink" title="关于Hexo的使用"></a>关于Hexo的使用</h2><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>本文是基于windows系统下的搭建过程，所以你需要准备<br>系统: windows10<br>nodejs：<a href="http://nodejs.cn/download/">下载</a><br>git: <a href="https://git-scm.com/download/">下载</a></p><h3 id="安装hexo的运行环境"><a href="#安装hexo的运行环境" class="headerlink" title="安装hexo的运行环境"></a>安装hexo的运行环境</h3><p>把下载的git和hexo正常安装就好了</p><p>git安装完成后的检查操作，打开cmd，输入命令<code>git</code>显示如图即为正常安装<br><img src="/img/git.jpg"></p><h3 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h3><p>首先为了给你的博客寻找一个合适的位置，你需要新建一个文件夹来存放你的博客的相关内容。然后在这个目录下鼠标右键，选择Git Bash Here，在打开的命令窗口下分别键入如下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">//安装hexo基础框架<br>npm install hexo-cli -g<br></code></pre></td></tr></table></figure><p>自动安装完成后。输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo -v<br></code></pre></td></tr></table></figure><p>检查是否安装成功<br>如果到目前为止都没有问题的话，那么本地的配置就已经全部结束了。接下来我们需要在<strong>GitHub</strong>上新建项目</p><ul><li>在GitHub上创建并设置远程库<br>注册登录GitHub账号，关于无法访问GitHub的问题，<del>出门右转科学上网。</del><br>登录完成后，选择<strong>New repository，然后在Repository name下面填写你要创建的地址(注意仓库名一定要和用户名一致），这个地址是就是你的域名，以github.io结尾。</strong> 例如填写<code>codersunk.github.io</code>以后在地址栏直接输入<code>codersunk.github.io</code>就可以访问博客网站</li><li>初始化Hexo<br>在博客文件夹目录下，右键Git Bash here，键入<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo init<br></code></pre></td></tr></table></figure>等待初始化完成</li><li>配置deployment<br>在博客项目的根目录有个_config.yml配置文件，修改里面的deploy配置，如下：<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">url:</span> https:<span class="hljs-comment">//name.github.io</span><br><br>...<br><br><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">type:</span> git<br><span class="hljs-symbol">repository:</span> git@github.com:name/name.github.io.git<br><span class="hljs-symbol">branch:</span> main<br></code></pre></td></tr></table></figure></li><li>安装git部署插件<br>在目录下右键Git Bash here，键入<code>npm install hexo-deployer-git --save</code></li><li>本地查看<br>键入<code>hexo g</code> 加载hexo基础html、css、js等文件。<br>接着键入<code>hexo s</code> 相当于开启了一个本地的服务器,在浏览器中输入 <a href="http://localhost:4000/">http://localhost:4000/</a> ,出现如下页面，说明本地hexo默认模板配置成功<br><img src="/img/hexo.jpg"></li><li>远程部署<br><code>hexo d</code>,部署成功后，即可在<a href="https://name.github.io/">https://name.github.io</a> 下访问你的博客</li></ul>]]></content>
     
     
     
