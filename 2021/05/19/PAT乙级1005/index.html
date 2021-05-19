@@ -18,7 +18,7 @@
   <meta name="author" content="sunkai">
   <meta name="keywords" content="">
   
-  <title>PAT乙级1002 写出这个数 - SunKaiblog</title>
+  <title>PAT乙级1005 继续(3n+1)猜想 - SunKaiblog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="PAT乙级1002 写出这个数">
+            <span class="h2" id="subtitle" title="PAT乙级1005 继续(3n+1)猜想">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-25 20:50" pubdate>
-        2021年4月25日 晚上
+      <time datetime="2021-05-19 20:05" pubdate>
+        2021年5月19日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      705 字
+      814 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      10
        分钟
     </span>
   
@@ -225,18 +225,22 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">PAT乙级1002 写出这个数</h1>
+            <h1 style="display: none">PAT乙级1005 继续(3n+1)猜想</h1>
             
             <div class="markdown-body">
-              <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>读入一个正整数 n，计算其各位数字之和，用汉语拼音写出和的每一位数字。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>每个测试输入包含 1 个测试用例，即给出自然数 n 的值。这里保证 n 小于 10^100。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>在一行内输出 n 的各位数字之和的每一位，拼音数字间有 1 空格，但一行中最后一个拼音数字后没有空格。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">1234567890987654321123456789<br></code></pre></td></tr></table></figure>
+              <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>卡拉兹(Callatz)猜想已经在1001中给出了描述。在这个题目里，情况稍微有些复杂。</p>
+<p>当我们验证卡拉兹猜想的时候，为了避免重复计算，可以记录下递推过程中遇到的每一个数。例如对 n=3 进行验证的时候，我们需要计算 3、5、8、4、2、1，则当我们对 n=5、8、4、2 进行验证的时候，就可以直接判定卡拉兹猜想的真伪，而不需要重复计算，因为这 4 个数已经在验证3的时候遇到过了，我们称 5、8、4、2 是被 3“覆盖”的数。我们称一个数列中的某个数 n 为“关键数”，如果 n 不能被数列中的其他数字所覆盖。</p>
+<p>现在给定一系列待验证的数字，我们只需要验证其中的几个关键数，就可以不必再重复验证余下的数字。你的任务就是找出这些关键数字，并按从大到小的顺序输出它们。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>每个测试输入包含 1 个测试用例，第 1 行给出一个正整数 K (&lt;100)，第 2 行给出 K 个互不相同的待验证的正整数 n (1&lt;n≤100)的值，数字间用空格隔开。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>每个测试用例的输出占一行，按从大到小的顺序输出关键数字。数字间用 1 个空格隔开，但一行中最后一个数字后没有空格。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-number">6</span><br><span class="hljs-symbol">3 </span><span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span> <span class="hljs-number">8</span> <span class="hljs-number">11</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">yi <span class="hljs-keyword">san</span> <span class="hljs-keyword">wu</span><br></code></pre></td></tr></table></figure>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>首先看一下题面，题目要求的测试用例范围是在10^100以内，这个数据显然远远超过了int型和long型的范围。所以尝试用string型去存这个数。然后思路是计算各位和，再将计算得到的和利用to_string转为string型，然后按位来输出。这里面有几个需要注意的地方。第一个需要注意的地方是使用string[i]取出的对象在借助<code>typeid.name()</code>函数查看后发现类型为char型，而并非int型。所以测试后发现在求和过程中发现得到的结果不正确，实际在求和过程中的数据应该是string[i]-‘0’。第二个需要注意的地方就是题目要求的“拼音数字间有 1 空格，但一行中最后一个拼音数字后没有空格。”</p>
-<h2 id="详细代码"><a href="#详细代码" class="headerlink" title="详细代码"></a>详细代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;string&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	string str;<br>	<span class="hljs-keyword">int</span> a = <span class="hljs-number">0</span>;<br>	cin &gt;&gt; str;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;str.<span class="hljs-built_in">length</span>(); i++)<br>	&#123;<br>		a += str[i]-<span class="hljs-string">&#x27;0&#x27;</span>;<br>	&#125;<br>	string str1 = <span class="hljs-built_in">to_string</span>(a);<br>	<span class="hljs-keyword">int</span> x = str1.<span class="hljs-built_in">length</span>();<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; x<span class="hljs-number">-1</span>; i++)<br>	&#123;<br>		<span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (str1[i] - <span class="hljs-string">&#x27;0&#x27;</span>)<br>		&#123;<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:cout &lt;&lt; <span class="hljs-string">&quot;yi &quot;</span>;<br>			<span class="hljs-keyword">break</span>;<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:cout &lt;&lt; <span class="hljs-string">&quot;er &quot;</span>;<br>			<span class="hljs-keyword">break</span>;<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:cout &lt;&lt; <span class="hljs-string">&quot;san &quot;</span>;<br>			<span class="hljs-keyword">break</span>;<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:cout &lt;&lt; <span class="hljs-string">&quot;si &quot;</span>;<br>			<span class="hljs-keyword">break</span>;<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:cout &lt;&lt; <span class="hljs-string">&quot;wu &quot;</span>;<br>			<span class="hljs-keyword">break</span>;<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:cout &lt;&lt; <span class="hljs-string">&quot;liu &quot;</span>;<br>			<span class="hljs-keyword">break</span>;<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:cout &lt;&lt; <span class="hljs-string">&quot;qi &quot;</span>;<br>			<span class="hljs-keyword">break</span>;<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">8</span>:cout &lt;&lt; <span class="hljs-string">&quot;ba &quot;</span>;<br>			<span class="hljs-keyword">break</span>;<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:cout &lt;&lt; <span class="hljs-string">&quot;jiu &quot;</span>;<br>			<span class="hljs-keyword">break</span>;<br>		<span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:cout &lt;&lt; <span class="hljs-string">&quot;ling &quot;</span>;<br>			<span class="hljs-keyword">break</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-built_in"><span class="hljs-keyword">switch</span></span> (str1[x<span class="hljs-number">-1</span>] - <span class="hljs-string">&#x27;0&#x27;</span>)<br>	&#123;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:cout &lt;&lt; <span class="hljs-string">&quot;yi&quot;</span>;<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:cout &lt;&lt; <span class="hljs-string">&quot;er&quot;</span>;<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:cout &lt;&lt; <span class="hljs-string">&quot;san&quot;</span>;<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:cout &lt;&lt; <span class="hljs-string">&quot;si&quot;</span>;<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:cout &lt;&lt; <span class="hljs-string">&quot;wu&quot;</span>;<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:cout &lt;&lt; <span class="hljs-string">&quot;liu&quot;</span>;<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:cout &lt;&lt; <span class="hljs-string">&quot;qi&quot;</span>;<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">8</span>:cout &lt;&lt; <span class="hljs-string">&quot;ba&quot;</span>;<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:cout &lt;&lt; <span class="hljs-string">&quot;jiu&quot;</span>;<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:cout &lt;&lt; <span class="hljs-string">&quot;ling&quot;</span>;<br>		<span class="hljs-keyword">break</span>;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>长时间缺少oj的练习明显感觉到编码能力的下降，趁着今天给自己放个假顺便码两道PAT的basic题，毕竟机试成绩需要长期积累才能有所提高。（其实只是给自己摸鱼不想学数学找借口）明天请务必好好复习！</p>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">7 </span><span class="hljs-number">6</span><br></code></pre></td></tr></table></figure>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>参考了柳婼大神的博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/liuchuo/article/details/51994889%EF%BC%8C%E5%A5%B9%E7%94%A8%E7%9A%84%E6%98%AFvector%EF%BC%8C%E8%BF%99%E9%87%8C%E4%BD%BF%E7%94%A8%E4%BA%86map">https://blog.csdn.net/liuchuo/article/details/51994889，她用的是vector，这里使用了map</a></strong><br>详细思路：定义map&lt;int,int&gt; m，输入的正整数存入数组a[101] (k&lt;100)<br>先对输入的数字a进行计算得到a1,a2,a3…，将m[a1],m[a2]…的值置1，在之后的计算过程中进行比对，若m[输入的数字或经过计算得到的数字]=1,即之前已经计算过该数字，这个数字是“覆盖数”，则停止验证，开始验证下一个数字</p>
+<p>用sort函数（头文件algorithm）将输入的数组a的元素从小到大排序<br>再使用reverse函数将数组倒置，从而得到降序数组<br>这两步可以自己写从大到小排序的函数</p>
+<p>最后遍历整个数组a，若m[a[i]]≠1（m[a[i]]=0）则a[i]为关键数，输出a[i]</p>
+<h2 id="详细代码"><a href="#详细代码" class="headerlink" title="详细代码"></a>详细代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;map&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> a[<span class="hljs-number">101</span>], n, flag = <span class="hljs-number">0</span>;<br><br>    map&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; m;<br>    cin &gt;&gt; n;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>    &#123;<br>        cin &gt;&gt; a[i];<br>        <span class="hljs-keyword">int</span> b = a[i];<br>        <span class="hljs-keyword">while</span> (b != <span class="hljs-number">1</span>)<br>        &#123;<br>            <span class="hljs-keyword">if</span> (b % <span class="hljs-number">2</span> != <span class="hljs-number">0</span>)<br>                b = <span class="hljs-number">3</span> * b + <span class="hljs-number">1</span>;<br><br>            b = b / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (m[b] == <span class="hljs-number">1</span>)<br>                <span class="hljs-keyword">break</span>;<br>            m[b] = <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">sort</span>(a, a + n);<br>    <span class="hljs-built_in">reverse</span>(a, a + n);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (m[a[i]] != <span class="hljs-number">1</span>)<br>        &#123;<br>            <span class="hljs-keyword">if</span> (flag == <span class="hljs-number">1</span>)<br>                cout &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>            cout &lt;&lt; a[i];<br>            flag = <span class="hljs-number">1</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>还是长时间缺少oj的练习，对c++基本知识的掌握不够熟练 ，对STL的常用容器的使用还是要更加熟练一点！</p>
 
             </div>
             <hr>
@@ -271,18 +275,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/19/PAT%E4%B9%99%E7%BA%A71005/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PAT乙级1005 继续(3n+1)猜想</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/27/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0%E4%B9%8B%E6%97%8B%E8%BD%AC%E9%93%BE%E8%A1%A8/">
-                        <span class="hidden-mobile">LeetCode每日一题No.61旋转链表</span>
+                      <a href="/2021/04/25/C%E8%89%B9%20PAT%20%E4%B9%99%E7%BA%A7%EF%BC%881002.%E8%AF%BB%E5%85%A5%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B4%E6%95%B0%20n%EF%BC%8C%E8%AE%A1%E7%AE%97%E5%85%B6%E5%90%84%E4%BD%8D%E6%95%B0%E5%AD%97%E4%B9%8B%E5%92%8C%EF%BC%8C%E7%94%A8%E6%B1%89%E8%AF%AD%E6%8B%BC%E9%9F%B3%E5%86%99%E5%87%BA%E5%92%8C%E7%9A%84%E6%AF%8F%E4%B8%80%E4%BD%8D%E6%95%B0%E5%AD%97%E3%80%82%EF%BC%89/">
+                        <span class="hidden-mobile">PAT乙级1002 写出这个数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
